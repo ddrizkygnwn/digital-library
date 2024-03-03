@@ -106,6 +106,18 @@
         </li>
        <?php   }
         ?>
+        <?php 
+          if($_SESSION['data']['Role'] == 'admin'){ ?>
+              <li class="nav-item">
+          <a href="dashboard.php?page=petugas" class="nav-link">
+            <i class="nav-icon fa fa-users"></i>
+            <p>
+              Petugas
+            </p>
+          </a>
+        </li>
+       <?php   }
+        ?>
                          <li class="nav-item">
           <a href="dashboard.php?page=ulasanbuku" class="nav-link">
               <i class="nav-icon fa fa-share"></i>

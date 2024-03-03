@@ -84,13 +84,16 @@
                 </tr>
              <?php   }
             ?>
-        </tbody>
+        </tbody>                          
     </table>
 </div>
 
 
 
     <?php 
+    $date=date_create(date("Y-m-d"));
+    date_modify($date,"+5 days");
+    $pengembalian = date_format($date,"Y-m-d");
         foreach($fung->viewPeminjam() as $d) { ?>
          <div class="modal fade" id="konfirmasi<?= $d['PeminjamanID'] ?>">
         <div class="modal-dialog">
@@ -101,8 +104,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="dashboard.php?page=KonfirmasiPeminjam
-            " method="post">
+            <form action="dashboard.php?page=KonfirmasiPeminjam" method="post">
             <div class="modal-body">
             <input type="text" name="PeminjamanID" value="<?= $d['PeminjamanID'];?>" hidden>
             <input type="text" name="BukuID" value="<?= $d['BukuID'];?>" hidden>
@@ -120,8 +122,8 @@
                 <input type="date" class="form-control" name="TanggalPeminjaman" value="<?= $d['TanggalPeminjaman'] ?>" disabled>
               </div>
               <div class="form-group">
-                <label for="">Tanggal Pengembalian</label>
-                <input type="date" class="form-control" name="TanggalPengembalian" value="<?= $d['TanggalPengembalian'] ?>" disabled>
+                <label for="">Tanggal Pengembalian</label>s
+                <input type="date" class="form-control" name="Tglp">
               </div>
              
             </div>

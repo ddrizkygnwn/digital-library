@@ -1,8 +1,13 @@
+<body style='background-image: url("layouts/Book.jpg"); 
+  background-position:center; 
+  background-repeat: no-repeat; 
+  background-size: cover; '>
 <div class="col-md-3 mb-5 mt-5">
       <div class="card">
           <div class="card-header">
             <p class="text-center"><strong>Login Digital Library</strong></p>
           </div>
+          <img src="layouts/logo.jpg" alt="logo" width='300px' height='300px'>
           <form action="index.php?page=postlogin" method="POST" id="logForm">
           <div class="card-body">
           <div class="form-group">
@@ -20,3 +25,4 @@
           </form>
         </div>
   </div>
+</body>

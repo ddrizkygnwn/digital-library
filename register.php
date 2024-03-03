@@ -1,4 +1,7 @@
-<body class="login-page" style="height: auto;">
+heig<body class="login-page" style='ht: auto; background-image: url("layouts/Book.jpg"); 
+  background-position:center; 
+  background-repeat: no-repeat; 
+  background-size: cover;'>
 
     <div class="container">
   <div class="row mt-5 mb-5 justify-content-center">

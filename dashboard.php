@@ -12,10 +12,8 @@ require('layouts/dashboard/header.php');
 
 if($_GET['page'] == 'admin'){
     include('auth/user.php');
-} elseif($_GET['page'] == 'petugas'){
-    include('auth/user.php');
 } elseif($_GET['page'] == 'user'){
-    // echo "user";
+     echo "user";
     include('auth/user.php');
 
 //Kategori
@@ -72,18 +70,56 @@ elseif ($_GET['page'] == 'databuku') {
 //peminjaman
 elseif ($_GET['page'] == 'Peminjam'){
     include('auth/datapeminjam.php');
-} elseif($_GET['page'] == 'KonfirmasiPeminjam') {
+ } elseif($_GET['page'] == 'KonfirmasiPeminjam') {
     $PeminjamanID = $_POST ['PeminjamanID'];
-    $TanggalPengembalian = $_POST['TanggalPengembalian'];
+    $Tglp = $_POST['Tglp'];
+    // var_dump($TanggalPengembalian);
     $UserID = $_POST ['UserID'];
     $BukuID = $_POST ['BukuID'];
-    $fung->KonfirmasiPeminjam($PeminjamanID, $TanggalPengembalian, $UserID, $BukuID);
+    $fung->KonfirmasiPeminjam($PeminjamanID, $Tglp, $UserID, $BukuID);    
 } elseif($_GET['page'] == 'konfirmasiPengembalian') {
     $PeminjamanID = $_POST ['PeminjamanID'];
     $fung->konfirmasiPengembalian($PeminjamanID);
 } elseif($_GET['page'] == 'hapusPeminjam') {
     $fung->hapusPeminjam($_GET['PeminjamanID']);
 } 
+
+
+
+// Registrasi petugas
+elseif($_GET['page'] == 'petugas'){
+    include('auth/petugas.php');
+}elseif($_GET['page'] == 'viewpetugas'){
+    $fung->viewpetugas();
+}elseif ($_GET['page'] == 'postpetugas') {
+    $data['Username'] = $_POST['Username'];
+    $data['Password'] = $_POST['Password'];
+    $data['Email'] = $_POST['Email'];
+    $data['NamaLengkap'] = $_POST['NamaLengkap'];
+    $data['Alamat'] = $_POST['Alamat'];
+    $fung->tambahpetugas($data);
+}elseif ($_GET['page'] == 'editpetugas') {
+    $UserID = $_POST['UserID'];
+    $Username = $_POST['Username'];
+    $Password = $_POST['Password'];
+    $Email = $_POST['Email'];
+    $NamaLengkap = $_POST['NamaLengkap'];
+    $Alamat = $_POST['Alamat'];
+    $Role = $_POST['Role'];
+    $fung->editpetugas($UserID);
+}elseif ($_GET['page'] == 'updatepetugas') {
+    $UserID = $_POST['UserID'];
+    $Username = $_POST['Username'];
+    $Password = $_POST['Password'];
+    $Email = $_POST['Email'];
+    $NamaLengkap = $_POST['NamaLengkap'];
+    $Alamat = $_POST['Alamat'];
+    $Role = $_POST['Role'];
+    $fung->updatepetugas($UserID,$Username, $Password, $Email, $NamaLengkap, $Alamat, $Role);
+}elseif($_GET['page'] == 'hapuspetugas'){
+    $fung->hapuspetugas($_GET['UserID']);
+}
+
 //koleksi
 elseif ($_GET['page'] == 'koleksi'){
     include('auth/koleksi.php');
